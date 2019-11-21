@@ -9,11 +9,14 @@
 </head>
 <body>
 	<h1>Lista de Produtos</h1>
+	<div> ${sucesso }</div>
+	<br>
 	<table>
-	<tr>Titulo</tr>
-	<tr>Descrição</tr>
-	<tr>Páginas</tr>
-	
+	<tr>
+	<td>Titulo</td>
+	<td>Descrição</td>
+	<td>Páginas</td>
+	</tr>
 	
 	<c:forEach items="${produtos}" var="produto">
 	<tr>
@@ -21,9 +24,7 @@
 	<td>${produto.descricao}</td>
 	<td>${produto.paginas}</td>
 	
-	
 	</tr>
-	
 	
 	</c:forEach>
 	</table>
