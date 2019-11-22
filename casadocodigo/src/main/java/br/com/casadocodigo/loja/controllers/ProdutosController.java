@@ -36,9 +36,9 @@ public class ProdutosController {
 		modelAndView.addObject("tipos", TipoPreco.values()); //retorna lista do enum "TipoPreco"
 		return modelAndView;
 	}
-	
+	//Metodo para gravar / redireciona atributos para pag
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView gravar(@Valid Produto produto,BindingResult result, RedirectAttributes redirectAttributes){ //redireciona atributos para pag
+	public ModelAndView gravar(@Valid Produto produto,BindingResult result, RedirectAttributes redirectAttributes){ 
 		
 		if(result.hasErrors()){
 			return form();
@@ -48,11 +48,12 @@ public class ProdutosController {
 		return new ModelAndView("redirect:produtos");
 	}
 	
+	//Metodo retorna lista de produtos
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView listar() {
 		List<Produto> produtos = produtoDao.listar();
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");
-		modelAndView.addObject("produtos", produtos); //retorna lista de produtos
+		modelAndView.addObject("produtos", produtos); 
 		return modelAndView;
 	}
 }
