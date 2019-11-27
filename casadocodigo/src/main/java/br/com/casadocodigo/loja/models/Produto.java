@@ -21,7 +21,8 @@ public class Produto {
 	private int paginas;
 	@DateTimeFormat
 	private Calendar dataLancamento;
-	
+	private String sumarioPath;
+		
 	@ElementCollection
 	private List<Preco> precos;
 	
@@ -61,6 +62,12 @@ public class Produto {
 	}
 	public void setPrecos(List<Preco> precos) {
 		this.precos = precos;
+	}
+	public String getSumarioPath() {
+		return sumarioPath;
+	}
+	public void setSumarioPath(String sumarioPath) {
+		this.sumarioPath = sumarioPath;
 	}
 	@Override
 	public String toString() {
