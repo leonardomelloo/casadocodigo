@@ -14,6 +14,8 @@ import br.com.casadocodigo.loja.models.Produto;
 @Transactional
 public class ProdutoDAO {
 
+	
+
 	@PersistenceContext
 	private EntityManager manager;
 	
@@ -25,4 +27,11 @@ public class ProdutoDAO {
 		
 		return manager.createQuery("Select p from Produto p ", Produto.class).getResultList();
 	}
+	
+	public Produto find(Integer id) {
+	    return manager.createQuery("select distinct(p) from Produto p " + 
+	        "join fetch p.precos precos where p.id = :id", Produto.class)
+	            .setParameter("id", id).getSingleResult();
+	}
 }
+
